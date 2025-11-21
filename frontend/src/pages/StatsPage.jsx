@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link as RouterLink } from 'react-router-dom';
 import "./StatsPage.css";
 
-const API = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+const API = import.meta.env.VITE_API_BASE || 'https://linkshortener-ss.onrender.com';
 
 export default function StatsPage() {
   const { code } = useParams();
