@@ -4,11 +4,33 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const Link = require('./models/Link');
-
 const linksRouter = require('./routes/links');
 
 const app = express();
-app.use(cors());
+
+// -------------------- CORS FIX --------------------
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://tinylinkshortener.netlify.app"
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS blocked: " + origin));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
+
+// Handle preflight requests
+app.options("*", cors());
+// ---------------------------------------------------
+
 app.use(express.json());
 app.use(morgan('dev'));
 
@@ -20,14 +42,14 @@ if (!MONGO_URI) {
   process.exit(1);
 }
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI)
   .then(() => console.log('Mongo connected'))
   .catch(err => {
     console.error('Mongo connection error', err);
     process.exit(1);
   });
 
-// Health check required by autograder
+// Health check
 app.get('/healthz', (req, res) => {
   return res.json({ ok: true, version: '1.0', uptime: process.uptime() });
 });
@@ -35,9 +57,8 @@ app.get('/healthz', (req, res) => {
 // API routes
 app.use('/api/links', linksRouter);
 
-// Redirect route - must be last
+// Redirect route (MUST BE LAST)
 app.get('/:code', async (req, res) => {
-  const { code } = req.params;
   try {
     const link = await Link.findOne({ code });
     if (!link) return res.status(404).send('Not found');
@@ -48,7 +69,7 @@ app.get('/:code', async (req, res) => {
 
     return res.redirect(302, link.url);
   } catch (err) {
-    console.error(err);
+    console.error("Redirect error:", err);
     return res.status(500).send('Server error');
   }
 });
