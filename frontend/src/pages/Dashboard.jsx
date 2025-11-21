@@ -3,7 +3,7 @@ import ShortenForm from '../components/ShortenForm';
 import LinkRow from '../components/LinkRow';
 import "./Dashboard.css";
 
-const API = import.meta.env.VITE_API_BASE || 'http://localhost:4000';
+const API = import.meta.env.VITE_API_BASE || 'https://linkshortener-ss.onrender.com';
 
 export default function Dashboard() {
   const [links, setLinks] = useState([]);
