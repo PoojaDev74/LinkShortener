@@ -1,0 +1,60 @@
+{
+  "info": {
+    "_postman_id": "tinylink-sample",
+    "name": "TinyLink",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{API_BASE}}/healthz"
+      }
+    },
+    {
+      "name": "Create Link",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"url\": \"https://example.com\", \"code\": \"abc123\" }"
+        },
+        "url": "{{API_BASE}}/api/links"
+      }
+    },
+    {
+      "name": "List Links",
+      "request": {
+        "method": "GET",
+        "url": "{{API_BASE}}/api/links"
+      }
+    },
+    {
+      "name": "Get Link",
+      "request": {
+        "method": "GET",
+        "url": "{{API_BASE}}/api/links/:code"
+      }
+    },
+    {
+      "name": "Delete Link",
+      "request": {
+        "method": "DELETE",
+        "url": "{{API_BASE}}/api/links/:code"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "API_BASE",
+      "value": "http://localhost:4000"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+/* Page wrapper */
+.dashboard-container {
+  padding: 1rem 0;
+}
+
+/* Header section (title + form) */
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .dashboard-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Title */
+.dashboard-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Search input */
+.dashboard-search {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Table wrapper */
+.dashboard-table-wrapper {
+  overflow-x: auto;
+}
+
+/* Table styles */
+.dashboard-table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+/* Header row */
+.dashboard-table thead tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Header cells */
+.dashboard-table th {
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+/* Tip footer text */
+.dashboard-tip {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #64748b; /* slate-500 */
+}
+
+/* Background highlight for code snippet */
+.dashboard-code-snippet {
+  background-color: #f1f5f9; /* slate-100 */
+  padding: 0.125rem 0.25rem;
+  border-radius: 4px;
+}

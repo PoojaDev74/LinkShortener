@@ -1,0 +1,58 @@
+/* Form container */
+.shorten-form {
+  display: flex;
+  gap: 0.5rem; /* same as Tailwind gap-2 */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* Main URL input */
+.shorten-input-url {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Code input */
+.shorten-input-code {
+  width: 10rem; /* same as w-40 */
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Submit button */
+.shorten-btn {
+  padding: 0.5rem 1rem;
+  background-color: #0284c7; /* sky-600 */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.shorten-btn:hover {
+  background-color: #0369a1; /* darker sky blue */
+}
+
+.shorten-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Feedback messages */
+.feedback-error {
+  margin-left: 0.5rem;
+  color: #dc2626; /* red-600 */
+  font-size: 0.9rem;
+}
+
+.feedback-success {
+  margin-left: 0.5rem;
+  color: #059669; /* green-600 */
+  font-size: 0.9rem;
+}

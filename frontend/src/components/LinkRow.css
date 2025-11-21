@@ -1,0 +1,55 @@
+/* Table row base */
+.link-row {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Short code link */
+.link-code {
+  color: #0284c7;
+  font-weight: 600;
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.link-code:hover {
+  text-decoration: underline;
+}
+
+/* URL column */
+.link-url {
+  width: 24rem; /* same as w-96 in Tailwind */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+/* Buttons container */
+.link-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Basic action button */
+.btn-action {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.btn-action:hover {
+  background: #f3f4f6;
+}
+
+/* Delete button */
+.btn-delete {
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
